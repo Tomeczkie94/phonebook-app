@@ -29,12 +29,12 @@ const App = () => {
  const onSubmitExtended = (event) => {
    (persons.some(person => person.name == newName)) ? window.alert(`${newName} is already added to phonebook`) : addPerson()
 }
- 
+
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addPerson}>
+      <form onSubmit={onSubmitExtended}>
         <div>
           name: <input
             type='text'
