@@ -3,7 +3,7 @@ import Person from './components/Person'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    { id: 'Arto Hellas',
+    { id: 1,
       name: 'Arto Hellas' }
   ])
   const [ newName, setNewName ] = useState('')
@@ -11,7 +11,7 @@ const App = () => {
   const addPerson = (event) => {
     event.preventDefault()
     const personObject = {
-      id: persons.name,
+      id: persons.length+1,
       name: newName,
       // number:
     }
@@ -23,6 +23,11 @@ const App = () => {
     console.log(event.target.value)
     setNewName(event.target.value)
   }
+
+/* */ console.log(persons);
+  // const checkIfContains = (event) => {
+  //
+  // }
 
   return (
     <div>
@@ -42,5 +47,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App
