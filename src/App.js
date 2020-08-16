@@ -27,14 +27,9 @@ const App = () => {
     console.log(persons);
 
  const onSubmitExtended = (event) => {
-   if (persons.some(person => person.name == newName)) {
-    window.alert(`${newName} is already added to phonebook`)
-   }
-
-   else {
- addPerson()
+   (persons.some(person => person.name == newName)) ? window.alert(`${newName} is already added to phonebook`) : addPerson()
 }
- }
+ 
 
   return (
     <div>
