@@ -24,10 +24,17 @@ const App = () => {
     setNewName(event.target.value)
   }
 
-/* */ console.log(persons);
-  // const checkIfContains = (event) => {
-  //
-  // }
+    console.log(persons);
+
+ const onSubmitExtended = (event) => {
+   if (persons.some(person => person.name == newName)) {
+    window.alert(`${newName} is already added to phonebook`)
+   }
+
+   else {
+ addPerson()
+}
+ }
 
   return (
     <div>
@@ -35,6 +42,7 @@ const App = () => {
       <form onSubmit={addPerson}>
         <div>
           name: <input
+            type='text'
             value={newName}
             onChange={handleNameChange}/>
         </div>
