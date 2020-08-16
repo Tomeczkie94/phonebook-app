@@ -8,8 +8,7 @@ const App = () => {
   ])
   const [ newName, setNewName ] = useState('')
 
-  const addPerson = (event) => {
-    event.preventDefault()
+  const addPerson = () => {
     const personObject = {
       id: persons.length+1,
       name: newName,
@@ -26,10 +25,12 @@ const App = () => {
 
     console.log(persons);
 
- const onSubmitExtended = (event) => {
-   (persons.some(person => person.name == newName)) ? window.alert(`${newName} is already added to phonebook`) : addPerson()
-}
+const isNameTaken = persons.some(person => person.name == newName)
 
+ const onSubmitExtended = (event) => {
+   event.preventDefault()
+   isNameTaken ? alert(`${newName} is already added to the phonebook`) : addPerson()
+}
 
   return (
     <div>
