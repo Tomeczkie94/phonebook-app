@@ -42,6 +42,10 @@ const isNameTaken = persons.some(person => person.name == newName)
   return (
     <div>
       <h2>Phonebook</h2>
+      <div>
+        filter shown with <input type='text' />
+      </div>
+      <h2>Add a new</h2>
       <form onSubmit={onSubmitExtended}>
         <div>
           name: <input type='text' value={newName} onChange={handleNameChange} />
