@@ -23,7 +23,7 @@ const App = () => {
     console.log(event.target.value)
     setNewName(event.target.value)
   }
-  
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -38,8 +38,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map(person => <Person key={person.id} name={name}/>)}
-
+      {persons.map(person => <Person key={person.id} name={person.name}/>)}
     </div>
   )
 }
