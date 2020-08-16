@@ -3,8 +3,10 @@ import Person from './components/Person'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    { id: 1,
-      name: 'Arto Hellas' }
+    { id: 1, name: 'Arto Hellas', number: '0700 880 774' },
+    { id: 2, name: 'Policja', number: '997' },
+    { id: 3, name: 'Pogotowie', number: '999' },
+    { id: 4, name: 'Straż Pożarna', number: '998' }
   ])
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
