@@ -7,20 +7,27 @@ const App = () => {
       name: 'Arto Hellas' }
   ])
   const [ newName, setNewName ] = useState('')
+  const [ newNumber, setNewNumber ] = useState('')
 
   const addPerson = () => {
     const personObject = {
       id: persons.length+1,
       name: newName,
-      // number:
+      number: newNumber
     }
     setPersons(persons.concat(personObject))
     setNewName('')
+    setNewNumber('')
   }
 
   const handleNameChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
+  }
+
+  const handleNumberChange = (event) => {
+    console.log(event.target.value)
+    setNewNumber(event.target.value)
   }
 
     console.log(persons);
@@ -37,17 +44,18 @@ const isNameTaken = persons.some(person => person.name == newName)
       <h2>Phonebook</h2>
       <form onSubmit={onSubmitExtended}>
         <div>
-          name: <input
-            type='text'
-            value={newName}
-            onChange={handleNameChange}/>
+          name: <input type='text' value={newName} onChange={handleNameChange} />
         </div>
         <div>
-          <button type="submit">add</button>
+          number: <input type='number' value={newNumber} onChange={handleNumberChange}/>
+        </div>
+        <div>
+          <button type='submit'>add</button>
         </div>
       </form>
+
       <h2>Numbers</h2>
-      {persons.map(person => <Person key={person.id} name={person.name}/>)}
+      {persons.map(person => <Person key={person.id} name={person.name} number={person.number}/>)}
     </div>
   )
 }
