@@ -10,6 +10,7 @@ const App = () => {
   ])
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
+  const [ newFilter, setNewFilter ] = useState('')
 
   const addPerson = () => {
     const personObject = {
@@ -31,7 +32,6 @@ const App = () => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
   }
-
     console.log(persons);
 
 const isNameTaken = persons.some(person => person.name == newName)
@@ -41,11 +41,17 @@ const isNameTaken = persons.some(person => person.name == newName)
    isNameTaken ? alert(`${newName} is already added to the phonebook`) : addPerson()
 }
 
+const handleSearchChange = (event) => {
+  event.preventDefault()
+  console.log(event.target.value)
+  setNewFilter(event.target.value)
+}
+
   return (
     <div>
       <h2>Phonebook</h2>
       <div>
-        filter shown with <input type='text' />
+        filter shown with <input type='text' onChange={handleSearchChange}/>
       </div>
       <h2>Add a new</h2>
       <form onSubmit={onSubmitExtended}>
