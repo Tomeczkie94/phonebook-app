@@ -40,7 +40,7 @@ const isNameTaken = persons.some(person => person.name == newName)
    isNameTaken ? alert(`${newName} is already added to the phonebook`) : addPerson()
 }
 
-const contactsToShow = () = showAll ? persons : persons.filter(person => person.name.includes(newFilter));
+const contactsToShow = () => showAll ? persons : persons.filter(person => person.name.includes(newFilter));
 
 const handleFilterChange = (event) => {
   console.log(event.target.value)
@@ -69,7 +69,7 @@ const handleFilterChange = (event) => {
         </div>
       </form>
 
-      <h2>Numbers</h2>
+      <h3>Numbers</h3>
       {contactsToShow().map(person => <Person key={person.id} name={person.name} number={person.number}/>)}
     </div>
   )
