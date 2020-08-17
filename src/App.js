@@ -40,7 +40,7 @@ const isNameTaken = persons.some(person => person.name == newName)
    isNameTaken ? alert(`${newName} is already added to the phonebook`) : addPerson()
 }
 
-const contactsToShow = () => showAll ? persons : persons.filter(person => person.name.includes(newFilter));
+const contactsToShow = () => showAll ? persons : persons.filter(person => person.name.toLowerCase().includes(newFilter.toLowerCase()));
 
 const handleFilterChange = (event) => {
   console.log(event.target.value)
