@@ -11,6 +11,7 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ newFilter, setNewFilter ] = useState('')
+  const [ showAll, setShowAll ] = useState(true)
 
   const addPerson = () => {
     const personObject = {
@@ -24,12 +25,10 @@ const App = () => {
   }
 
   const handleNameChange = (event) => {
-    console.log(event.target.value)
     setNewName(event.target.value)
   }
 
   const handleNumberChange = (event) => {
-    console.log(event.target.value)
     setNewNumber(event.target.value)
   }
     console.log(persons);
@@ -41,17 +40,20 @@ const isNameTaken = persons.some(person => person.name == newName)
    isNameTaken ? alert(`${newName} is already added to the phonebook`) : addPerson()
 }
 
-const handleSearchChange = (event) => {
+const contactsToShow = (event) = showAll ? persons : persons.filter(person => person.name.(event.target.value));
+
+const handleFilterChange = (event) => {
   event.preventDefault()
   console.log(event.target.value)
   setNewFilter(event.target.value)
+  contactsToShow()
 }
 
   return (
     <div>
       <h2>Phonebook</h2>
       <div>
-        filter shown with <input type='text' onChange={handleSearchChange}/>
+        filter shown with <input type='text' onChange={handleFilterChange} value={newFilter}/>
       </div>
       <h2>Add a new</h2>
       <form onSubmit={onSubmitExtended}>
